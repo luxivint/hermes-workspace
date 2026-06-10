@@ -14,11 +14,7 @@ services:
       MISTRAL_API_KEY: ${MISTRAL_API_KEY:-}
 
       HERMES_UID: "10010"
-
-      HERMES_DASHBOARD: "1"
-      HERMES_DASHBOARD_HOST: "0.0.0.0"
-      HERMES_DASHBOARD_PORT: "9119"
-      HERMES_DASHBOARD_INSECURE: ${HERMES_DASHBOARD_INSECURE:-1}
+      HERMES_HOME: /opt/data
 
       API_SERVER_ENABLED: "true"
       API_SERVER_HOST: "0.0.0.0"
@@ -32,7 +28,6 @@ services:
 
     expose:
       - "8642"
-      - "9119"
 
     networks:
       - dokploy-network
@@ -53,11 +48,8 @@ services:
       HERMES_WORKSPACE_DIR: /workspace
 
       HERMES_API_URL: http://hermes-agent:8642
-      HERMES_DASHBOARD_URL: http://hermes-agent:9119
-
       HERMES_API_TOKEN: ${API_SERVER_KEY:-}
       CLAUDE_API_TOKEN: ${API_SERVER_KEY:-}
-      CLAUDE_DASHBOARD_TOKEN: ${API_SERVER_KEY:-}
 
       HERMES_PASSWORD: ${HERMES_PASSWORD:-}
       CLAUDE_PASSWORD: ${CLAUDE_PASSWORD:-}
