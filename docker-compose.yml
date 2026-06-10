@@ -28,6 +28,9 @@ services:
       - "8642"
       - "9119"
 
+    networks:
+      - dokploy-network
+
   hermes-workspace:
     image: ghcr.io/outsourc-e/hermes-workspace:latest
     restart: unless-stopped
@@ -56,6 +59,13 @@ services:
     expose:
       - "3000"
 
+    networks:
+      - dokploy-network
+
 volumes:
   hermes-agent-data:
   hermes-workspace-files:
+
+networks:
+  dokploy-network:
+    external: true
